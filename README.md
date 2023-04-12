@@ -13,7 +13,7 @@
 
 # Raccourci - URL shortener 
 
-## Instalation
+## Installation
 
 Pour débuter, l'installation des packages nodejs est faite par la commande `npm`: 
   
