@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  db:
+  raccourci-db:
     container_name: ${APP}-mysqldb-${SUFFIX}
     image: mysql:8
     command: --default-authentication-plugin=mysql_native_password
@@ -17,47 +17,9 @@ services:
     networks:
       - ${NETWORK}
 
-  #adminer: 
-  #  container_name: ${APP}-adminer-${SUFFIX}
-  #  image: adminer
-  #  restart: always
-  #  ports: 
-  #    - 8889:8080
-  #  depends_on:
-  #    - db
-  #  networks:
-  #    - ${NETWORK}
-
-  #omnidb:
-  #  container_name: ${APP}-omniDb-${SUFFIX}
-  #  image: taivokasper/omnidb
-  #  restart: always
-  #  volumes:
-  #    - ./data/omnidb:/etc/omnidb 
-    #links:
-    #  - postgres:postgres
-  #  ports:
-  #    - "8090:8080"
-  #    - "25482:25482"
-  #  networks:
-  #    - ${NETWORK}
-
-  #omniDb:
-  #  container_name: ${APP}-omniDb-${SUFFIX}
-  #  image: omnidbteam/omnidb:latest
-  #  restart: always
-  #  links:
-  #    - postgres:postgres
-  #  ports:
-  #    - 8889:8080
-  #  volumes: 
-  #    - ./data/omnidb:/home/omnidb/.omnidb/omnidb-server
-  #  networks:
-  #    - ${NETWORK}
-
-  api:
+  raccourci-api:
     container_name: ${APP}-api-${SUFFIX}
-    image: shortnsweet-backend
+    image: raccourci-backend
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -69,7 +31,7 @@ services:
       - ${NETWORK}
     restart: unless-stopped
     depends_on: 
-      - db
+      - raccourci-db
 
 networks:
-  shortnsweet-network:
+  raccourci-network:
