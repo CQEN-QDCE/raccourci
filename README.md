@@ -31,7 +31,7 @@ MODE=DEV
 SECRET=
 
 # Variables d'environnement de la bd MySQL
-MYSQL_HOST=db
+MYSQL_HOST=raccourci-db
 MYSQL_PORT=3307
 MYSQL_ROOT_PASSWORD=
 MYSQL_USER=port-e-user
