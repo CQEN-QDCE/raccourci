@@ -1,0 +1,75 @@
+#/*
+#* Copyright (c) 2022 Gouvernement du Québec
+#* Auteur: Julio Cesar Torres 
+#* SPDX-License-Identifier: LiLiQ-R-v.1.1
+#* License-Filename: /LICENSE
+#*/
+##############################################################
+# Requetes http pour l'émeteur d'attestations d'accès virtuel
+##############################################################
+# Avant usage, il faut renseigner les champs X-API-Key des 
+# endpoints qui seront utilisés. 
+# 
+### Définition des variables globales 
+@hostname = http://localhost:3001
+@id = 1
+@short = "IsOboFA6"
+# ============================================================================
+#    Entity: short-url
+#    Endpoint: /short-url
+# ============================================================================
+
+####
+#### Redireciona ao url 
+#### 
+GET {{hostname}}/{{short}} HTTP/1.1
+X-API-Key: 
+Content-Type: application/json
+
+####
+#### Selects all short-url 
+#### 
+GET {{hostname}}/v1/short-url HTTP/1.1
+X-API-Key: 
+Content-Type: application/json
+
+####
+#### Selects a short-url 
+#### 
+GET {{hostname}}/v1/short-url/unique/{{short}} HTTP/1.1
+X-API-Key: 
+Content-Type: application/json
+
+####
+#### Create a new short-url 
+#### 
+POST {{hostname}}/v1/short-url HTTP/1.1
+X-API-Key: 
+Content-Type: application/json
+
+{
+    "originalUrl": "https://www.namecheap.com/support/knowledgebase/article.aspx/10491/2254/video-how-to-add-an-a-record-for-a-domain-name-in-namecheap-account/?gclid=CjwKCAjwzuqgBhAcEiwAdj5dRgkka1UMOlkLvp70ZXQBgWTegjrZXZ5HrdvF-qmpOnma8OEckw0qEBoCq60QAvD_BwE",
+    "uniqueId": "", 
+    "numberClicks": 0, 
+    "user": "juliozohar"
+}
+
+####
+DELETE {{hostname}}/v1/short-url/{{id}} HTTP/1.1
+X-API-Key: 
+Content-Type: application/json
+
+
+
+@access-id=1
+@ngrokadress=https://f46b-107-159-197-196.ngrok.io
+
+# Endpoint temporaire entree acces/refus
+####
+PATCH {{hostname}}/v1/short-url/{{access-id}} HTTP/1.1
+X-API-Key: 
+Content-Type: application/json
+
+{
+    "originalUrl": "nouveaucrm/webhook/accept"
+}

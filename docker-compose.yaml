@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  raccourci-db:
+    container_name: ${APP}-mysqldb-${SUFFIX}
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3307:3306
+    expose:
+      - 3307
+    env_file:
+      - .env
+    volumes:
+      - ./data/mysql-data:/var/lib/mysql
+    networks:
+      - ${NETWORK}
+
+  raccourci-api:
+    container_name: ${APP}-api-${SUFFIX}
+    image: raccourci-backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    networks: 
+      - ${NETWORK}
+    restart: unless-stopped
+    depends_on: 
+      - raccourci-db
+
+networks:
+  raccourci-network:
