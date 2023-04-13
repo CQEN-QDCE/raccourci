@@ -10,7 +10,8 @@ export class AppController {
    * @returns 
    */
   @Get()
-  getHello(): string {
+  getHello(@Res() response): string {
+    response.redirect("http://localhost:3000/api");
     return this.appService.getHello();
   }
 
