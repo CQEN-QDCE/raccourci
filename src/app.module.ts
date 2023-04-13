@@ -10,13 +10,13 @@ require('dotenv').config();
 @Module({
   imports: [ShortUrlModule, 
     TypeOrmModule.forRoot({
-      type: 'mysql', 
-      // IMPORTANTE: Nao usar a variavel port, causa do erro 
+      type: 'postgres', 
+      // IMPORTANTE: Nao usar a variavel port, causa do erro : 
       // Nest  ERROR [TypeOrmModule] Unable to connect to the database. Error: connect ECONNREFUSED 127.0.0.1:3307 
-      host: process.env.MYSQL_HOST,
-      username: process.env.MYSQL_USER, 
-      password: process.env.MYSQL_PASSWORD, 
-      database: process.env.MYSQL_DATABASE, 
+      host: process.env.POSTGRES_HOST,
+      database: process.env.POSTGRES_DB, 
+      username: process.env.POSTGRES_USER, 
+      password: process.env.POSTGRES_PASSWORD, 
       autoLoadEntities: true, 
       synchronize: Boolean(process.env.SYNCHRONIZE)
     }),],
