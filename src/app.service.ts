@@ -1,4 +1,4 @@
-import { Injectable, Param, Res } from '@nestjs/common';
+import { Header, HttpException, HttpStatus, Injectable, Param, Res } from '@nestjs/common';
 import { ShortUrlService } from './short-url/short-url.service';
 
 @Injectable()
@@ -10,42 +10,27 @@ export class AppService {
   ){}
 
   getHello(): string {
-    return "<h1>Welcome to Short'n'Sweet.</h1> <br> Você pode gerar o seu short URL se você tem um convite...";
+    return "<h1>Raccourci</h1> <br> Generateur d'url raccourcie pour développement";
   }
 
+  @Header('Content-Type', 'text/plain')
   async getUrlRedirect(@Param('uniqueId') uniqueId: string, @Res() response){
 
     try{
       let shortUrl = await this.shortService.findUnique(uniqueId);
       
       if(!shortUrl){
-        console.log("Link nao encontrado; redirecionando para pagina de entrada"); 
-        response.redirect("http://localhost:3000");
+        throw new HttpException('Not found', HttpStatus.NOT_FOUND);
       }
 
-      // Incrementa a quantidade de clicks recebidas pelo link
-      shortUrl.numberClicks++; 
-      this.shortService.update(shortUrl.id, shortUrl); 
+      let adresse = shortUrl.originalUrl;
+      console.log(adresse);
 
-      console.log(`[REDIR]: ${shortUrl.originalUrl}`); 
-      response.redirect(shortUrl.originalUrl);
+      response.send(adresse);
+      
     } catch(error){
-      console.log("CATCH: ", error);
+      //console.log("CATCH: ", error);
+      response.status(404).send("Lien non trouvé; vérifiez le lien que vous devez soumettre.");
     } 
   }
-
-  async getSomeShitUrlRedirect(@Param('uniqueId') uniqueId: string, @Res() response){
-
-    try {
-      let shortUrl = await this.shortService.findUnique(uniqueId);
-      console.log(shortUrl);
-      if (!shortUrl){
-        console.log(`Nao localizado`); 
-        response.redirect("http://localhost:3000/")
-        return;
-      }
-    } catch (error) {
-      
-    }
-  } 
 }
