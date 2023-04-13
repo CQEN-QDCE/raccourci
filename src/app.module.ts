@@ -18,7 +18,8 @@ require('dotenv').config();
       username: process.env.POSTGRES_USER, 
       password: process.env.POSTGRES_PASSWORD, 
       autoLoadEntities: true, 
-      synchronize: Boolean(process.env.SYNCHRONIZE)
+      // synchronize: Boolean(process.env.SYNCHRONIZE)
+      synchronize: true
     }),],
   controllers: [AppController],
   providers: [AppService, ShortUrlService],
