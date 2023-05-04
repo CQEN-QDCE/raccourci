@@ -11,7 +11,7 @@ export class AppController {
    */
   @Get()
   getHello(@Res() response) {
-    response.redirect("https://exp-port-e-raccourci.apps.exp.openshift.cqen.ca/api");
+    response.redirect("https://exp-port-e-url-courte.apps.exp.openshift.cqen.ca/api");
     //return this.appService.getHello();
   }
 
