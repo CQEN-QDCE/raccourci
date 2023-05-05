@@ -10,7 +10,7 @@ export class AppService {
   ){}
 
   getHello(): string {
-    return "<h1>Raccourci</h1> <br> Generateur d'url raccourcie pour développement";
+    return "<h1>Raccourci</h1> <br> Accédez l'API <a href='http://localhost:3000/api'>Swagger</a>";
   }
 
   @Header('Content-Type', 'text/plain')
