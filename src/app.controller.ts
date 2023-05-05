@@ -10,8 +10,9 @@ export class AppController {
    * @returns 
    */
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getHello(@Res() response) {
+    response.redirect("https://exp-port-e-url-courte.apps.exp.openshift.cqen.ca/api");
+    //return this.appService.getHello();
   }
 
   /**

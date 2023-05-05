@@ -7,10 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle("Short'n'Sweet")
-    .setDescription("Descricao da API da Short'n'Sweet")
+    .setTitle("Raccourci")
+    .setDescription("API de l'url shortener du lab, raccourci")
     .setVersion("1.0")
-    .addTag("shortnsweet")
+    .addTag("raccourci")
     .build(); 
 
   const document = SwaggerModule.createDocument(app, config); 
