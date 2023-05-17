@@ -12,7 +12,7 @@
 # 
 ### Définition des variables globales 
 # @hostname = http://localhost:3001
-@hostname = https://exp-port-e-url-courte.apps.exp.openshift.cqen.ca/api
+@hostname = https://exp-port-e-url-courte.apps.exp.openshift.cqen.ca
 @id = 1
 @short = "IsOboFA6"
 # ============================================================================
