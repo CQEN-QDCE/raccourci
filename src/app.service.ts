@@ -13,7 +13,8 @@ export class AppService {
     return "<h1>Raccourci</h1> <br> Accédez l'API <a href='http://localhost:3000/api'>Swagger</a>";
   }
 
-  @Header('Content-Type', 'text/plain')
+  // @Header('Content-Type', 'text/plain')
+  @Header('Content-Type', 'application/json')
   async getUrlRedirect(@Param('uniqueId') uniqueId: string, @Res() response){
 
     try{
@@ -26,10 +27,11 @@ export class AppService {
       let adresse = shortUrl.originalUrl;
       console.log(adresse);
 
+      response.status(301); 
+      response.header("Location", shortUrl.originalUrl);
       response.send(adresse);
       
     } catch(error){
-      //console.log("CATCH: ", error);
       response.status(404).send("Lien non trouvé; vérifiez le lien que vous devez soumettre.");
     } 
   }
