@@ -11,7 +11,8 @@
 # endpoints qui seront utilisés. 
 # 
 ### Définition des variables globales 
-@hostname = http://localhost:3001
+# @hostname = http://localhost:3001
+@hostname = https://shortnsweet.link
 @id = 1
 @short = "IsOboFA6"
 # ============================================================================
@@ -48,10 +49,10 @@ X-API-Key:
 Content-Type: application/json
 
 {
-    "originalUrl": "https://www.namecheap.com/support/knowledgebase/article.aspx/10491/2254/video-how-to-add-an-a-record-for-a-domain-name-in-namecheap-account/?gclid=CjwKCAjwzuqgBhAcEiwAdj5dRgkka1UMOlkLvp70ZXQBgWTegjrZXZ5HrdvF-qmpOnma8OEckw0qEBoCq60QAvD_BwE",
+    "originalUrl": "https://exp-port-e-consommateur-agent.apps.exp.openshift.cqen.ca?c_i=eyJAdHlwZSI6ICJkaWQ6c292OkJ6Q2JzTlloTXJqSGlxWkRUVUFTSGc7c3BlYy9jb25uZWN0aW9ucy8xLjAvaW52aXRhdGlvbiIsICJAaWQiOiAiODgzZWZkZTAtNmFmYi00YjQ5LWE5MDAtMTIyMmY4NzQ5OGQ1IiwgImxhYmVsIjogIkNvbnNvbW1hdGV1ciBwaHlzaXF1ZSBwb3VyIGF0dGVzdGF0aW9uIG51bVx1MDBlOXJpcXVlIiwgInJlY2lwaWVudEtleXMiOiBbIkY3VFRBOEhoUkFYWlY0dFhmY2dwblpGUmlkQmdGUmtYQkxRTVBlREdYMlphIl0sICJzZXJ2aWNlRW5kcG9pbnQiOiAiaHR0cHM6Ly9leHAtcG9ydC1lLWNvbnNvbW1hdGV1ci1hZ2VudC5hcHBzLmV4cC5vcGVuc2hpZnQuY3Flbi5jYSJ9",
     "uniqueId": "", 
     "numberClicks": 0, 
-    "user": "juliozohar"
+    "user": "port-e-user"
 }
 
 ####
