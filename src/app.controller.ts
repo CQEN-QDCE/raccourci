@@ -16,7 +16,7 @@ export class AppController {
   getHello(@Res() response) {
     const SUBDOMAIN = process.env.APP_SUBDOMAIN
     const DOMAIN    = process.env.APP_DOMAIN
-    response.redirect(`https://${SUBDOMAIN}.${DOMAIN}/api`); 
+    response.redirect(`https://p.apps.exp.openshift.cqen.ca/api`); 
   }
 
   /**
