@@ -6,13 +6,12 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   /**
-   * Método de exemplo do framework
-   * @returns 
+   * Méthode d'exemple du framework
+   * @returns redirectionne la page vers la page base de l'API
    */
   @Get()
   getHello(@Res() response) {
-    response.redirect("https://exp-port-e-url-courte.apps.exp.openshift.cqen.ca/api");
-    //return this.appService.getHello();
+    response.redirect("https://p.apps.exp.openshift.cqen.ca/api");
   }
 
   /**
