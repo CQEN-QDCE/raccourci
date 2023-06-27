@@ -1,8 +1,11 @@
 import { Controller, Get, Param, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 
+require('dotenv').config();
+
 @Controller()
 export class AppController {
+
   constructor(private readonly appService: AppService) {}
 
   /**
@@ -11,7 +14,9 @@ export class AppController {
    */
   @Get()
   getHello(@Res() response) {
-    response.redirect("https://p.apps.exp.openshift.cqen.ca/api");
+    const SUBDOMAIN = process.env.APP_SUBDOMAIN
+    const DOMAIN    = process.env.APP_DOMAIN
+    response.redirect(`https://${SUBDOMAIN}.${DOMAIN}/api`); 
   }
 
   /**
