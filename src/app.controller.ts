@@ -1,18 +1,22 @@
 import { Controller, Get, Param, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 
+require('dotenv').config();
+
 @Controller()
 export class AppController {
+
   constructor(private readonly appService: AppService) {}
 
   /**
-   * Método de exemplo do framework
-   * @returns 
+   * Méthode d'exemple du framework
+   * @returns redirectionne la page vers la page base de l'API
    */
   @Get()
   getHello(@Res() response) {
-    response.redirect("https://exp-port-e-url-courte.apps.exp.openshift.cqen.ca/api");
-    //return this.appService.getHello();
+    const SUBDOMAIN = process.env.APP_SUBDOMAIN
+    const DOMAIN    = process.env.APP_DOMAIN
+    response.redirect(`https://p.apps.exp.openshift.cqen.ca/api`); 
   }
 
   /**
